@@ -1,0 +1,37 @@
+function App() {
+
+  const data = [
+    {image:"https://images.unsplash.com/photo-1715645943748-a7cf8a81f1ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8", name:"Competetion", artist:"Jazy", added: false},
+    {image:"https://images.unsplash.com/photo-1715714002747-744a5bf0996a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8", name:"Aurous", artist:"Ediln", added: false},
+    {image:"https://images.unsplash.com/photo-1715282196638-773cc726952c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D", name:"Sajdeya", artist:"Diljit", added: false},
+    {image:"https://plus.unsplash.com/premium_photo-1664299020216-9ac720350100?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D", name:"Whisk", artist:"Benny", added: false}
+  ]
+
+  const [songData, setSongData] = useState(data);
+
+  const handleClick = (ind) => {
+    setSongData((prev)=>{
+      return prev.map((item, index)=>{
+        if(index === ind){
+          return{...item, added: !item.added}
+        }
+        return item;
+      })
+    })
+  }
+
+  return(
+    <>
+      <div className='w-full h-screen bg-zinc-300'>
+        <Navbar data={songData}/>
+        <div className='px-20 flex gap-8 mt-10 flex-wrap'>
+        {songData.map((obj, index) => {
+          return <MusicCard data={obj} handleClick={handleClick} index={index} key={index}/>
+        })}
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default App

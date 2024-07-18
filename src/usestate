@@ -1,0 +1,34 @@
+// const ans = useState(0);
+  // ans[0] = value
+  // ans[1] = function
+  // i.e., ans is an array
+
+  // or, we can also write like
+
+  // const [score, setScore] = useState(100);
+
+//   -------------------------------------------------
+
+  // const [val, setVal] = useState({name: "Dev", isBanned: "false"});
+  
+  // return (
+  //   <div className="p-4">
+  //     {/* <Card/>  */}
+  //     {/* <Card2/>  */}
+  //     <h1>name: {val.name}</h1>
+  //     <h2>banned: {val.isBanned.toString()}</h2>
+  //     <button onClick={()=>setVal({...val, isBanned: !val.isBanned})} className={`px-2 py-1 mt-2 rounded-full text-xs ${val.isBanned ? "bg-blue-500" : "bg-red-500"} text-white`}>Change</button>
+  //   </div>
+  // );
+
+
+  //   -------------------------------------------------
+  const [val, setVal] = useState([1, 2, 3, 4, 5, 6]);
+  return (
+    <div className='p-5'>
+      {val.map(item=><h1>{item}</h1>)}
+      <button onClick={()=>setVal(()=>{
+        return val.filter(item=>item%2!=0)
+      })} className='px-2 py-1 text-xs rounded-full text-white bg-blue-500'>click</button>
+    </div>
+  )

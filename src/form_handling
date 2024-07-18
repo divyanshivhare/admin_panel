@@ -1,0 +1,19 @@
+import React from 'react'
+import { useForm } from 'react-hook-form'
+
+function App() {
+    // There are 3 different methods of form handling in React (useRef, controlled components, react hook form)
+    // Form handling using react-hook-form (mostly used)
+    const {register, handleSubmit} = useForm();
+  return (
+    <div>
+      <form action="" onSubmit={handleSubmit(data => console.log(data))}>
+        <input {...register('name')} type="text" placeholder='name' />
+        <input {...register('email')} type="email" placeholder='email' />
+        <input type="submit" />
+      </form>
+    </div>
+  )
+}
+
+export default App
